@@ -35,11 +35,6 @@ const interests = [
 const fieldClassName =
   'mt-2 w-full rounded-xl border border-white/12 bg-[#080b13] px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-white/60 focus:ring-2 focus:ring-white/10';
 
-const API_URL = (
-  process.env.NEXT_PUBLIC_API_URL ||
-  (process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : '')
-).replace(/\/$/, '');
-
 function getBrowserTimezone() {
   try {
     return Intl.DateTimeFormat().resolvedOptions().timeZone || 'Asia/Kolkata';
@@ -84,7 +79,7 @@ export function BookingForm({ initialPackage }: { initialPackage?: string }) {
     setStatus('submitting');
     setSubmitError('');
     try {
-      const response = await fetch(`${API_URL}/api/v1/leads`, {
+      const response = await fetch('/api/v1/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

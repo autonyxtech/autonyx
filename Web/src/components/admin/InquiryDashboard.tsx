@@ -40,10 +40,6 @@ type Lead = {
 
 type DashboardView = 'overview' | 'all' | 'booking' | 'chat';
 
-const API_URL = (
-  process.env.NEXT_PUBLIC_API_URL ||
-  (process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : '')
-).replace(/\/$/, '');
 const ADMIN_TOKEN_KEY = 'autonyx-admin-token';
 
 export function InquiryDashboard() {
@@ -72,8 +68,8 @@ export function InquiryDashboard() {
     try {
       const headers = { Authorization: `Bearer ${accessToken}` };
       const [leadsResponse, analyticsResponse] = await Promise.all([
-        fetch(`${API_URL}/api/v1/admin/leads`, { headers }),
-        fetch(`${API_URL}/api/v1/admin/analytics`, { headers }),
+        fetch('/api/v1/admin/leads', { headers }),
+        fetch('/api/v1/admin/analytics', { headers }),
       ]);
       if (leadsResponse.status === 401 || analyticsResponse.status === 401) {
         window.localStorage.removeItem(ADMIN_TOKEN_KEY);
@@ -124,7 +120,7 @@ export function InquiryDashboard() {
     setIsLoading(true);
     setError('');
     try {
-      const response = await fetch(`${API_URL}/api/v1/admin/login`, {
+      const response = await fetch('/api/v1/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password }),
@@ -171,7 +167,7 @@ export function InquiryDashboard() {
     setDeletingLeadId(pendingDelete.id);
     setDeleteError('');
     try {
-      const response = await fetch(`${API_URL}/api/v1/admin/leads/${pendingDelete.id}`, {
+      const response = await fetch(`/api/v1/admin/leads/${pendingDelete.id}`, {
         method: 'DELETE',
         headers: { Authorization: 'Bearer ' + token },
       });

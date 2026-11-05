@@ -33,10 +33,6 @@ function extractContactDetails(messages: Message[]): ContactDetails {
   return details;
 }
 
-const API_URL = (
-  process.env.NEXT_PUBLIC_API_URL ||
-  (process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : '')
-).replace(/\/$/, '');
 const STARTERS = ['What can your AI assistant do?', 'How does a project get started?', 'Can you help with a business website?'];
 const MAX_MESSAGES = 20;
 const MAX_LENGTH = 1000;
@@ -193,7 +189,7 @@ function InquiryForm({ sessionId, onComplete, initialData }: { sessionId: string
     }
 
     try {
-      const res = await fetch(`${API_URL}/api/v1/chat-inquiry`, {
+      const res = await fetch('/api/v1/chat-inquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ session_id: sessionId, name, business_name: businessName || '', email, phone }),
@@ -332,7 +328,7 @@ export function ChatWidget() {
     const timer = window.setTimeout(() => setIsConnecting(true), 700);
     const timeout = window.setTimeout(() => controller.abort(), 12000);
 
-    fetch(`${API_URL}/api/v1/health`, { signal: controller.signal })
+    fetch('/api/v1/health', { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error('Service unavailable');
         return response.json() as Promise<{ chat_configured?: boolean }>;
@@ -380,7 +376,7 @@ export function ChatWidget() {
     setIsSending(true);
 
     try {
-      const response = await fetch(`${API_URL}/api/v1/chat`, {
+      const response = await fetch('/api/v1/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream' },
         body: JSON.stringify({ session_id: sessionRef.current || getSessionId(), message }),
