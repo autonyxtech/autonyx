@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.vercel
+npm-debug.log*
+.DS_Store
+*.tsbuildinfo
+.env*
+!.env.example
+implementation_plan.md.resolved
+PROMPT.md
