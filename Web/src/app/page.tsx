@@ -25,14 +25,14 @@ import { BookCallButton } from '@/components/ui/BookCallButton';
 import { BRAND, siteConfig } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'Autonyx Technologies | AI automation and business websites',
+  title: 'Autonyx Technologies | AI Websites & AI Chat Agents',
   description:
-    'Practical AI assistants, business websites and workflow automation for growing companies. Build a clearer online presence and respond to enquiries sooner.',
+    'Autonyx Technologies builds AI-powered websites, chat agents and workflow automation to help growing businesses capture and respond to enquiries.',
   alternates: { canonical: '/' },
   openGraph: {
     title: 'Autonyx Technologies | AI automation and business websites',
     description: 'Business websites and AI systems designed to make everyday customer work easier.',
-    url: 'https://autonyx.tech/',
+    url: 'https://autonyxtech.in/',
     siteName: BRAND.name,
     type: 'website',
   },
@@ -57,7 +57,7 @@ export default function HomePage() {
       {
         '@type': 'Organization',
         name: BRAND.name,
-        url: 'https://autonyx.tech',
+        url: 'https://autonyxtech.in',
         email: BRAND.email,
         description: 'AI automation, business websites and lead capture for growing companies.',
       },
@@ -207,6 +207,7 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Re-enable this section when public case studies are ready.
         <section id="work" className="work-section section-shell" aria-labelledby="work-title">
           <div className="section-heading">
             <div><p className="eyebrow">Selected work</p><h2 id="work-title">Proof should be real, not decorative.</h2></div>
@@ -222,6 +223,7 @@ export default function HomePage() {
             <BookCallButton className="button button-secondary">Discuss your project</BookCallButton>
           </div>
         </section>
+        */}
 
         <section id="faq" className="faq-section section-shell" aria-labelledby="faq-title">
           <div className="faq-heading">

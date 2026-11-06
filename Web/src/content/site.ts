@@ -1,10 +1,13 @@
+const contactPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+91 9265679968';
+const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'autonyxtech@gmail.com';
+
 export const BRAND = {
   name: 'Autonyx Technologies',
   shortName: 'Autonyx',
-  domain: 'autonyx.tech',
-  email: 'hello@autonyx.tech',
-  phone: '+91 98765 43210',
-  whatsappLink: 'https://wa.me/919876543210',
+  domain: 'autonyxtech.in',
+  email: contactEmail,
+  phone: contactPhone,
+  whatsappLink: `https://wa.me/${contactPhone.replace(/\D/g, '')}`,
   startTime: 'Mon-Fri, 9:00 AM to 6:00 PM IST',
   responseTime: 'Usually within 1 business day',
 };
@@ -14,7 +17,7 @@ export const siteConfig = {
     { label: 'Services', href: '#services' },
     { label: 'Packages', href: '#packages' },
     { label: 'AI Agent', href: '#agent' },
-    { label: 'Work', href: '#work' },
+    // { label: 'Work', href: '#work' },
     { label: 'FAQ', href: '#faq' },
     { label: 'Contact', href: '/contact/' },
   ],
@@ -109,7 +112,6 @@ export const TODO_REAL_DATA = [
   'Replace the demo hero video with a compressed production asset under 8 MB.',
   'Add real work screenshots and case-study content for the Selected Work section.',
   'Set final pricing for Launch, AI Growth and Run & Automate.',
-  'Add final contact details, WhatsApp number and company policy links.'
 ];
 
 export const socialLinks = [

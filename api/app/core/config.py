@@ -27,8 +27,8 @@ class Settings(BaseSettings):
 
     # ── Business identity ────────────────────────────────────────────────
     business_name: str = 'Autonyx Technologies'
-    business_website_url: str = 'https://autonyx.tech'
-    business_phone: str = '+91 98765 43210'
+    business_website_url: str = 'https://autonyxtech.in'
+    business_phone: str = '+91 9265679968'
 
     # ── LLM ──────────────────────────────────────────────────────────────
     llm_provider: str = 'groq'
@@ -61,7 +61,7 @@ class Settings(BaseSettings):
     smtp_use_tls: bool = True
     smtp_use_ssl: bool = False
     email_from: str = 'hello@autonyx.tech'
-    email_to: str = 'hello@autonyx.tech'
+    email_to: str = 'autonyxtech@gmail.com'
     email_timeout_seconds: int = 30
 
     # ── Database (Neon Postgres — configure via env) ─────────────────────

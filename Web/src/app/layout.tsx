@@ -20,12 +20,16 @@ const unbounded = Unbounded({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Autonyx Technologies | AI automation and business websites',
+    default: 'Autonyx Technologies | AI Websites & AI Chat Agents',
     template: '%s | Autonyx Technologies',
   },
-  description: 'Practical AI assistants, business websites and workflow automation for growing companies.',
-  metadataBase: new URL('https://autonyx.tech'),
+  description: 'Autonyx Technologies builds AI-powered websites, chat agents and workflow automation to help growing businesses capture and respond to enquiries.',
+  metadataBase: new URL('https://autonyxtech.in'),
   robots: { index: true, follow: true },
+  icons: {
+    icon: '/brand/logo.png',
+    apple: '/brand/logo.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

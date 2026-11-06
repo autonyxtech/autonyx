@@ -6,8 +6,8 @@ The agency helps small and mid-size businesses (first niche: energy and solar co
 automate customer interactions, capture and qualify leads, and build modern websites.
 
 ## Contact
-- Website: https://autonyx.tech
-- Email: hello@autonyx.tech
+- Website: https://autonyxtech.in
+- Email: autonyxtech@gmail.com
 - WhatsApp: Available (link on website)
 - Working hours: Mon–Fri, 9:00 AM to 6:00 PM IST
 - Response time: Usually within 1 business day

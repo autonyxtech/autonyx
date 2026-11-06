@@ -5,6 +5,6 @@ export const dynamic = 'force-static';
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: '*', allow: '/' },
-    sitemap: 'https://autonyx.tech/sitemap.xml',
+    sitemap: 'https://autonyxtech.in/sitemap.xml',
   };
 }
