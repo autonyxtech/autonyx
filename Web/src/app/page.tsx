@@ -15,6 +15,7 @@ import {
   Workflow,
 } from 'lucide-react';
 import { AgentCalculator } from '@/components/sections/AgentCalculator';
+import { HeroBackgroundVideo } from '@/components/sections/HeroBackgroundVideo';
 import { HeroVideo } from '@/components/sections/HeroVideo';
 import { PackagesPinned } from '@/components/sections/PackagesPinned';
 import { ChatOpenButton } from '@/components/chat/ChatOpenButton';
@@ -84,11 +85,7 @@ export default function HomePage() {
       <Header />
       <main id="main-content" className="home-page">
         <section id="hero" className="hero-section" aria-labelledby="hero-title">
-          <div className="hero-atmosphere" aria-hidden="true">
-            <div className="hero-grid" />
-            <div className="hero-orb hero-orb-blue" />
-            <div className="hero-orb hero-orb-cyan" />
-          </div>
+          <HeroBackgroundVideo />
           <div className="hero-content section-shell">
             <div className="hero-copy">
               <p className="hero-kicker"><span className="status-dot" />{siteConfig.hero.eyebrow}</p>
@@ -106,17 +103,6 @@ export default function HomePage() {
                 <span><Check size={15} aria-hidden="true" /> Plain-language setup</span>
                 <span><Check size={15} aria-hidden="true" /> Your team stays in control</span>
               </div>
-            </div>
-
-            <div className="hero-visual" aria-label="A preview of a customer chat assistant">
-              <div className="visual-orbit visual-orbit-one" aria-hidden="true" />
-              <div className="visual-orbit visual-orbit-two" aria-hidden="true" />
-              <div className="visual-topline">
-                <span><span className="status-dot" /> DEMONSTRATION</span>
-                <span>AI ASSISTANT</span>
-              </div>
-              <HeroVideo />
-              <ChatOpenButton className="demo-open">Try the live assistant</ChatOpenButton>
             </div>
           </div>
           <a className="scroll-cue" href="#services"><span>Scroll to explore</span><ArrowDown size={15} aria-hidden="true" /></a>
@@ -224,6 +210,43 @@ export default function HomePage() {
           </div>
         </section>
         */}
+
+        <section id="intro-hero" className="intro-hero-section" aria-labelledby="intro-hero-title">
+          <div className="hero-atmosphere" aria-hidden="true">
+            <div className="hero-grid" />
+            <div className="hero-orb hero-orb-blue" />
+            <div className="hero-orb hero-orb-cyan" />
+          </div>
+          <div className="hero-content section-shell">
+            <div className="hero-copy">
+              <p className="hero-kicker"><span className="status-dot" />{siteConfig.hero.eyebrow}</p>
+              <h1 id="intro-hero-title">
+                <span>AI agents that reply</span>
+                <span>to every customer</span>
+                <span>in seconds.</span>
+              </h1>
+              <p className="hero-description">{siteConfig.hero.description}</p>
+              <div className="hero-actions">
+                <BookCallButton>Book a call</BookCallButton>
+                <ChatOpenButton className="button button-secondary">{siteConfig.hero.secondaryCta}</ChatOpenButton>
+              </div>
+              <div className="hero-proofline">
+                <span><Check size={15} aria-hidden="true" /> Plain-language setup</span>
+                <span><Check size={15} aria-hidden="true" /> Your team stays in control</span>
+              </div>
+            </div>
+            <div className="hero-visual" aria-label="A preview of a customer chat assistant">
+              <div className="visual-orbit visual-orbit-one" aria-hidden="true" />
+              <div className="visual-orbit visual-orbit-two" aria-hidden="true" />
+              <div className="visual-topline">
+                <span><span className="status-dot" /> DEMONSTRATION</span>
+                <span>AI ASSISTANT</span>
+              </div>
+              <HeroVideo />
+              <ChatOpenButton className="demo-open">Try the live assistant</ChatOpenButton>
+            </div>
+          </div>
+        </section>
 
         <section id="faq" className="faq-section section-shell" aria-labelledby="faq-title">
           <div className="faq-heading">

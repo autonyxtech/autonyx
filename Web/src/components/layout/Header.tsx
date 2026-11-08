@@ -12,6 +12,7 @@ export function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [isOverHero, setIsOverHero] = useState(false);
   const { openBooking } = useBooking();
 
   const sectionHref = (href: string) => pathname === '/' ? href : `/${href}`;
@@ -44,6 +45,34 @@ export function Header() {
   }, [pathname]);
 
   useEffect(() => {
+    if (pathname !== '/') {
+      setIsOverHero(false);
+      return;
+    }
+
+    const updateHeroOverlap = () => {
+      const hero = document.querySelector('#hero');
+      const header = document.querySelector('.site-header');
+      if (!hero || !header) {
+        setIsOverHero(false);
+        return;
+      }
+
+      const heroBounds = hero.getBoundingClientRect();
+      const headerBottom = header.getBoundingClientRect().bottom;
+      setIsOverHero(heroBounds.top <= headerBottom && heroBounds.bottom > headerBottom);
+    };
+
+    updateHeroOverlap();
+    window.addEventListener('scroll', updateHeroOverlap, { passive: true });
+    window.addEventListener('resize', updateHeroOverlap);
+    return () => {
+      window.removeEventListener('scroll', updateHeroOverlap);
+      window.removeEventListener('resize', updateHeroOverlap);
+    };
+  }, [pathname]);
+
+  useEffect(() => {
     if (!menuOpen) return;
     const closeOnEscape = (event: globalThis.KeyboardEvent) => {
       if (event.key === 'Escape') setMenuOpen(false);
@@ -53,7 +82,7 @@ export function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="site-header">
+    <header className={`site-header${isOverHero ? ' is-over-hero' : ''}`}>
       <div className="header-inner">
         <Link href="/" className="brand-lockup" aria-label={`${BRAND.name} home`} onClick={() => setMenuOpen(false)}>
           <Image
